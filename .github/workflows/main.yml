@@ -1,0 +1,32 @@
+name: Build Mac App
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Download code
+        uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install "qrcode[pil]" pyinstaller
+
+      - name: Build Mac app
+        run: |
+          pyinstaller --windowed qr_code_generator.py
+
+      - name: Upload app
+        uses: actions/upload-artifact@v4
+        with:
+          name: qr-code-generator-mac
+          path: dist/qr_code_generator.app
