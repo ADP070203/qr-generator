@@ -96,43 +96,43 @@ def generate_qr():
 
 # Main window
 root = tk.Tk()
-root.title("QR Code Generator")
+root.title("C-biotech QR Code Generator")
 root.geometry("700x620")
 root.resizable(False, False)
-root.configure(bg="#dff6f0")
+root.configure(bg="#74C365")
 
 title_label = tk.Label(
     root,
-    text="QR Code Generator",
+    text="C-biotech QR Code Generator",
     font=("Arial", 22, "bold"),
-    bg="#dff6f0",
+    bg="#74C365",
     fg="#1b4332"
 )
 title_label.pack(pady=15)
 
 # Text / URL
-text_frame = tk.Frame(root, bg="#dff6f0")
+text_frame = tk.Frame(root, bg="#74C365")
 text_frame.pack(fill="x", padx=20, pady=8)
 
 tk.Label(
     text_frame,
     text="Enter text or URL:",
     font=("Arial", 12, "bold"),
-    bg="#dff6f0"
+    bg="#74C365"
 ).pack(anchor="w")
 
 text_input = tk.Text(text_frame, height=5, font=("Arial", 11))
 text_input.pack(fill="x", pady=5)
 
 # Save location
-location_frame = tk.Frame(root, bg="#dff6f0")
+location_frame = tk.Frame(root, bg="#74C365")
 location_frame.pack(fill="x", padx=20, pady=8)
 
 tk.Label(
     location_frame,
     text="Choose folder to save the QR code:",
     font=("Arial", 12, "bold"),
-    bg="#dff6f0"
+    bg="#74C365"
 ).grid(row=0, column=0, sticky="w", columnspan=2)
 
 save_location_var = tk.StringVar()
@@ -149,14 +149,14 @@ browse_button = tk.Button(
 browse_button.grid(row=1, column=1, pady=5)
 
 # File name
-name_frame = tk.Frame(root, bg="#dff6f0")
+name_frame = tk.Frame(root, bg="#74C365")
 name_frame.pack(fill="x", padx=20, pady=8)
 
 tk.Label(
     name_frame,
     text="File name:",
     font=("Arial", 12, "bold"),
-    bg="#dff6f0"
+    bg="#74C365"
 ).pack(anchor="w")
 
 file_name_var = tk.StringVar(value="my_qr_code")
@@ -164,26 +164,26 @@ file_name_entry = tk.Entry(name_frame, textvariable=file_name_var, font=("Arial"
 file_name_entry.pack(fill="x", pady=5)
 
 # Options
-options_frame = tk.Frame(root, bg="#dff6f0")
+options_frame = tk.Frame(root, bg="#74C365")
 options_frame.pack(fill="x", padx=20, pady=8)
 
 # Version
-tk.Label(options_frame, text="Version (1-40):", font=("Arial", 11, "bold"), bg="#dff6f0").grid(row=0, column=0, sticky="w", padx=5, pady=5)
+tk.Label(options_frame, text="Version (1-40):", font=("Arial", 11, "bold"), bg="#74C365").grid(row=0, column=0, sticky="w", padx=5, pady=5)
 version_var = tk.StringVar(value="1")
 tk.Entry(options_frame, textvariable=version_var, font=("Arial", 11), width=10).grid(row=1, column=0, sticky="w", padx=5)
 
 # Box size
-tk.Label(options_frame, text="Box size:", font=("Arial", 11, "bold"), bg="#dff6f0").grid(row=0, column=1, sticky="w", padx=5, pady=5)
+tk.Label(options_frame, text="Box size:", font=("Arial", 11, "bold"), bg="#74C365").grid(row=0, column=1, sticky="w", padx=5, pady=5)
 box_size_var = tk.StringVar(value="10")
 tk.Entry(options_frame, textvariable=box_size_var, font=("Arial", 11), width=10).grid(row=1, column=1, sticky="w", padx=5)
 
 # Border
-tk.Label(options_frame, text="Border (min 4):", font=("Arial", 11, "bold"), bg="#dff6f0").grid(row=0, column=2, sticky="w", padx=5, pady=5)
+tk.Label(options_frame, text="Border (min 4):", font=("Arial", 11, "bold"), bg="#74C365").grid(row=0, column=2, sticky="w", padx=5, pady=5)
 border_var = tk.StringVar(value="4")
 tk.Entry(options_frame, textvariable=border_var, font=("Arial", 11), width=10).grid(row=1, column=2, sticky="w", padx=5)
 
 # Error correction
-tk.Label(options_frame, text="Error correction:", font=("Arial", 11, "bold"), bg="#dff6f0").grid(row=0, column=3, sticky="w", padx=5, pady=5)
+tk.Label(options_frame, text="Error correction:", font=("Arial", 11, "bold"), bg="#74C365").grid(row=0, column=3, sticky="w", padx=5, pady=5)
 error_level_var = tk.StringVar(value="M (15%)")
 error_menu = tk.OptionMenu(options_frame, error_level_var, *ERROR_LEVELS.keys())
 error_menu.config(font=("Arial", 10), width=12)
@@ -210,7 +210,7 @@ help_label = tk.Label(
         "Use H for the strongest error correction."
     ),
     font=("Arial", 10),
-    bg="#dff6f0",
+    bg="#74C365",
     fg="#333333",
     justify="center"
 )
