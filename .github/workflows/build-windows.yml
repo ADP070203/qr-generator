@@ -1,11 +1,11 @@
-name: Build Mac App
+name: Build Windows EXE
 
 on:
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: windows-latest
 
     steps:
       - name: Download code
@@ -21,12 +21,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install "qrcode[pil]" pyinstaller
 
-      - name: Build Mac app
+      - name: Build EXE
         run: |
-          pyinstaller --windowed qr_code_generator.py
+          pyinstaller --windowed --onefile qr_code_generator.py
 
-      - name: Upload app
+      - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
-          name: qr-code-generator-mac
-          path: dist/qr_code_generator.app
+          name: qr-code-generator-windows
+          path: dist/qr_code_generator.exe
