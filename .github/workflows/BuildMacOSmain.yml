@@ -25,8 +25,13 @@ jobs:
         run: |
           pyinstaller --windowed qr_code_generator.py
 
-      - name: Upload app
+      - name: Zip app bundle
+        run: |
+          cd dist
+          ditto -c -k --sequesterRsrc --keepParent qr_code_generator.app qr_code_generator-mac.zip
+
+      - name: Upload zip
         uses: actions/upload-artifact@v4
         with:
           name: qr-code-generator-mac
-          path: dist/qr_code_generator.app
+          path: dist/qr_code_generator-mac.zip
